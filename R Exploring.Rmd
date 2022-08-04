@@ -1,0 +1,52 @@
+---
+title: "R Exploring"
+author: "Lewis White"
+date: "2022-08-04"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(skimr)
+library(GGally)
+```
+
+
+```{r}
+names(diamonds)
+dim(diamonds)
+summary(diamonds)
+head(diamonds)
+tail(diamonds)
+```
+
+
+```{r}
+skim(diamonds)
+```
+
+```{r, echo=FALSE, include=FALSE, eval=FALSE}
+ggpairs(diamonds)
+## this took so long omfg
+```
+
+```{r}
+ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point()
+  
+```
+
+```{r}
+ggplot(data = diamonds, aes(x = carat)) + 
+  geom_histogram(color = "white", fill = "darkorchid4") + 
+  theme_minimal()
+```
+
+
+```{r}
+ggplot(data = diamonds, aes(x = clarity, y = price)) +
+  geom_jitter(alpha = 0.2)
+```
+
